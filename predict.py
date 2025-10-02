@@ -16,7 +16,7 @@ transform = transforms.Compose([
 train_dir = "data/train"  
 dataset = datasets.ImageFolder(train_dir)
 classes = dataset.classes  
-print("Gefundene Klassen:", classes)
+print("Possible Species", classes)
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -43,5 +43,5 @@ with torch.no_grad():
     outputs = model(x)
     pred = outputs.argmax(1).item()
 
-print(f"Bild: {img_name}")
-print("Vorhersage:", classes[pred])
+print(f"Actual Test Species: {img_name}")
+print("Detected Species:", classes[pred])
